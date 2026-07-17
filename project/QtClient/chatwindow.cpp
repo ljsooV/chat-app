@@ -3,6 +3,7 @@
 #include <QAbstractSocket>
 #include <QFont>
 #include <QListWidgetItem>
+#include <QSizePolicy>
 #include <QStatusBar>
 #include <QTextBlockFormat>
 #include <QTextCharFormat>
@@ -113,9 +114,11 @@ void ChatWindow::setupUi()
     setMinimumSize(1020, 680);
 
     centralWidget()->setStyleSheet(
-        "QWidget { background:#f3f5f6; color:#24343b; font-size:14px; }"
+        "QWidget#centralwidget { background:#f3f5f6; color:#24343b; font-size:14px; }"
         "QFrame#connectionCardFrame, QFrame#workspaceFrame { background:#ffffff; border:1px solid #d8e0e3; border-radius:12px; }"
         "QFrame#landingFrame { background:#243b44; border-radius:14px; }"
+        "QLabel { background:transparent; border:none; }"
+        "QFrame#landingFrame QLabel { background:transparent; border:none; }"
         "QLineEdit, QListWidget, QTextEdit { background:#ffffff; border:1px solid #cbd5d9; border-radius:8px; padding:8px; }"
         "QLineEdit:focus, QListWidget:focus, QTextEdit:focus { border:1px solid #237985; }"
         "QPushButton { background:#237985; color:white; border:0; border-radius:8px; padding:9px 14px; font-weight:600; }"
@@ -125,7 +128,24 @@ void ChatWindow::setupUi()
         "QTabBar::tab { background:#e7edef; padding:8px 14px; margin-right:3px; }"
         "QTabBar::tab:selected { background:#ffffff; font-weight:700; }");
 
+    m_ui->connectionCardFrame->setAttribute(Qt::WA_StyledBackground, true);
+    m_ui->connectionCardFrame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_ui->connectionCardFrame->setFixedHeight(112);
+
+    m_ui->landingFrame->setAttribute(Qt::WA_StyledBackground, true);
+    m_ui->landingFrame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_ui->landingTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_ui->landingTextLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_ui->landingLayout->setSpacing(12);
+    m_ui->landingLayout->insertStretch(0, 1);
+    m_ui->landingLayout->addStretch(1);
+    m_ui->connectionLayout->setColumnStretch(1, 1);
+    m_ui->connectionLayout->setColumnStretch(3, 1);
+    m_ui->connectionLayout->setColumnStretch(5, 1);
+
     m_ui->connectionTitleLabel->setStyleSheet("font-size:18px; font-weight:700;");
+    m_ui->landingTitleLabel->setStyleSheet("color:#ffffff; font-size:26px; font-weight:700;");
+    m_ui->landingTextLabel->setStyleSheet("color:#c8d7da; font-size:14px;");
     m_ui->workspaceTitleLabel->setStyleSheet("font-size:20px; font-weight:700;");
     m_ui->currentRoomLabel->setStyleSheet("background:#e7f1f2; color:#17636d; border-radius:8px; padding:6px 10px; font-weight:700;");
     m_ui->ownerStateLabel->setStyleSheet("color:#66767c;");

@@ -41,6 +41,7 @@ private:
     mutex m_client_lock;
     vector<thread> m_client_threads;
     mutex m_thread_lock;
+
     atomic<bool> m_running;
     atomic<bool> m_wsa_ready;
 };

@@ -5,7 +5,7 @@
   <property name="geometry">
    <rect><x>0</x><y>0</y><width>1280</width><height>800</height></rect>
   </property>
-  <property name="windowTitle"><string>Qt Chat Client</string></property>
+  <property name="windowTitle"><string>chat-app</string></property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="rootLayout">
     <property name="leftMargin"><number>16</number></property>
@@ -23,7 +23,7 @@
        <property name="horizontalSpacing"><number>10</number></property>
        <property name="verticalSpacing"><number>8</number></property>
        <item row="0" column="0"><widget class="QLabel" name="connectionTitleLabel"><property name="text"><string>Connection</string></property></widget></item>
-       <item row="0" column="6"><widget class="QLabel" name="statusLabel"><property name="text"><string>Disconnected</string></property></widget></item>
+       <item row="0" column="6" alignment="Qt::AlignRight|Qt::AlignVCenter"><widget class="QLabel" name="statusLabel"><property name="text"><string>Disconnected</string></property></widget></item>
        <item row="1" column="0"><widget class="QLabel" name="hostTitleLabel"><property name="text"><string>Host</string></property></widget></item>
        <item row="1" column="1"><widget class="QLineEdit" name="hostEdit"><property name="text"><string>127.0.0.1</string></property></widget></item>
        <item row="1" column="2"><widget class="QLabel" name="portTitleLabel"><property name="text"><string>Port</string></property></widget></item>
@@ -31,7 +31,6 @@
        <item row="1" column="4"><widget class="QLabel" name="nicknameTitleLabel"><property name="text"><string>Nickname</string></property></widget></item>
        <item row="1" column="5"><widget class="QLineEdit" name="nicknameEdit"><property name="placeholderText"><string>Nickname</string></property></widget></item>
        <item row="1" column="6"><widget class="QPushButton" name="connectButton"><property name="text"><string>Connect</string></property></widget></item>
-       <item row="1" column="7"><spacer name="connectionSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
       </layout>
      </widget>
     </item>
@@ -63,7 +62,6 @@
          <item><spacer name="workspaceSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
         </layout>
        </item>
-       <item><widget class="QLabel" name="chatFeedTitleLabel"><property name="text"><string>Chat Feed</string></property></widget></item>
        <item>
         <widget class="QSplitter" name="centerSplitter">
          <property name="orientation"><enum>Qt::Horizontal</enum></property>
