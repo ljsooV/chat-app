@@ -1,699 +1,113 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ChatWindow</class>
  <widget class="QMainWindow" name="ChatWindow">
   <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1320</width>
-    <height>820</height>
-   </rect>
+   <rect><x>0</x><y>0</y><width>1280</width><height>800</height></rect>
   </property>
-  <property name="windowTitle">
-   <string>Qt Chat Client</string>
-  </property>
+  <property name="windowTitle"><string>Qt Chat Client</string></property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="rootLayout">
-    <property name="spacing">
-     <number>14</number>
-    </property>
-    <property name="leftMargin">
-     <number>18</number>
-    </property>
-    <property name="topMargin">
-     <number>18</number>
-    </property>
-    <property name="rightMargin">
-     <number>18</number>
-    </property>
-    <property name="bottomMargin">
-     <number>18</number>
-    </property>
+    <property name="leftMargin"><number>16</number></property>
+    <property name="topMargin"><number>16</number></property>
+    <property name="rightMargin"><number>16</number></property>
+    <property name="bottomMargin"><number>16</number></property>
+    <property name="spacing"><number>12</number></property>
     <item>
      <widget class="QFrame" name="connectionCardFrame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="connectionCardLayout">
-       <property name="spacing">
-        <number>10</number>
-       </property>
-       <property name="leftMargin">
-        <number>14</number>
-       </property>
-       <property name="topMargin">
-        <number>14</number>
-       </property>
-       <property name="rightMargin">
-        <number>14</number>
-       </property>
-       <property name="bottomMargin">
-        <number>14</number>
-       </property>
+      <layout class="QGridLayout" name="connectionLayout">
+       <property name="leftMargin"><number>16</number></property>
+       <property name="topMargin"><number>12</number></property>
+       <property name="rightMargin"><number>16</number></property>
+       <property name="bottomMargin"><number>12</number></property>
+       <property name="horizontalSpacing"><number>10</number></property>
+       <property name="verticalSpacing"><number>8</number></property>
+       <item row="0" column="0"><widget class="QLabel" name="connectionTitleLabel"><property name="text"><string>Connection</string></property></widget></item>
+       <item row="0" column="6"><widget class="QLabel" name="statusLabel"><property name="text"><string>Disconnected</string></property></widget></item>
+       <item row="1" column="0"><widget class="QLabel" name="hostTitleLabel"><property name="text"><string>Host</string></property></widget></item>
+       <item row="1" column="1"><widget class="QLineEdit" name="hostEdit"><property name="text"><string>127.0.0.1</string></property></widget></item>
+       <item row="1" column="2"><widget class="QLabel" name="portTitleLabel"><property name="text"><string>Port</string></property></widget></item>
+       <item row="1" column="3"><widget class="QLineEdit" name="portEdit"><property name="text"><string>9000</string></property></widget></item>
+       <item row="1" column="4"><widget class="QLabel" name="nicknameTitleLabel"><property name="text"><string>Nickname</string></property></widget></item>
+       <item row="1" column="5"><widget class="QLineEdit" name="nicknameEdit"><property name="placeholderText"><string>Nickname</string></property></widget></item>
+       <item row="1" column="6"><widget class="QPushButton" name="connectButton"><property name="text"><string>Connect</string></property></widget></item>
+       <item row="1" column="7"><spacer name="connectionSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="landingFrame">
+      <layout class="QVBoxLayout" name="landingLayout">
+       <property name="leftMargin"><number>40</number></property>
+       <property name="topMargin"><number>40</number></property>
+       <property name="rightMargin"><number>40</number></property>
+       <property name="bottomMargin"><number>40</number></property>
+       <item><widget class="QLabel" name="landingTitleLabel"><property name="text"><string>Simple TCP chat, focused on the essentials.</string></property><property name="alignment"><set>Qt::AlignCenter</set></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+       <item><widget class="QLabel" name="landingTextLabel"><property name="text"><string>Enter a nickname to join. Create rooms, whisper to users, and manage rooms you own.</string></property><property name="alignment"><set>Qt::AlignCenter</set></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="workspaceFrame">
+      <layout class="QVBoxLayout" name="workspaceLayout">
+       <property name="leftMargin"><number>14</number></property>
+       <property name="topMargin"><number>14</number></property>
+       <property name="rightMargin"><number>14</number></property>
+       <property name="bottomMargin"><number>14</number></property>
+       <property name="spacing"><number>10</number></property>
        <item>
-        <widget class="QLabel" name="connectionCardTitleLabel">
-         <property name="text">
-          <string>Connection</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="connectionCardSubtitleLabel">
-         <property name="text">
-          <string>Choose how to join first. Guests only need a display name, while login/register also needs account credentials.</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="topGrid">
-         <property name="horizontalSpacing">
-          <number>12</number>
-         </property>
-         <property name="verticalSpacing">
-          <number>10</number>
-         </property>
-         <item row="0" column="0">
-          <widget class="QLabel" name="hostTitleLabel">
-           <property name="text">
-            <string>Host</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="hostEdit">
-           <property name="text">
-            <string>127.0.0.1</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="portTitleLabel">
-           <property name="text">
-            <string>Port</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLineEdit" name="portEdit">
-           <property name="text">
-            <string>9000</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="accountTitleLabel">
-           <property name="text">
-            <string>Account</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="5">
-          <widget class="QLineEdit" name="accountEdit"/>
-         </item>
-         <item row="0" column="6">
-          <widget class="QLabel" name="passwordTitleLabel">
-           <property name="text">
-            <string>Password</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="7">
-          <widget class="QLineEdit" name="passwordEdit"/>
-         </item>
-         <item row="0" column="8" rowspan="2">
-          <widget class="QPushButton" name="connectButton">
-           <property name="minimumHeight">
-            <number>52</number>
-           </property>
-           <property name="text">
-            <string>Connect</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="statusTitleLabel">
-           <property name="text">
-            <string>Status</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="statusLabel">
-           <property name="text">
-            <string>Disconnected</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="authModeTitleLabel">
-           <property name="text">
-            <string>Auth Mode</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QComboBox" name="authModeCombo">
-           <item>
-            <property name="text">
-             <string>Guest</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Login</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Register</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLabel" name="displayNameTitleLabel">
-           <property name="text">
-            <string>Display Name</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QLineEdit" name="nicknameEdit"/>
-         </item>
+        <layout class="QHBoxLayout" name="workspaceHeaderLayout">
+         <item><widget class="QLabel" name="workspaceTitleLabel"><property name="text"><string>Chat</string></property></widget></item>
+         <item><widget class="QLabel" name="currentRoomLabel"><property name="text"><string>Lobby</string></property></widget></item>
+         <item><widget class="QLabel" name="ownerStateLabel"><property name="text"><string>No owner</string></property></widget></item>
+         <item><spacer name="workspaceSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
         </layout>
        </item>
+       <item><widget class="QLabel" name="chatFeedTitleLabel"><property name="text"><string>Chat Feed</string></property></widget></item>
        <item>
-        <widget class="QLabel" name="connectionSummaryLabel">
-         <property name="text">
-          <string>Guest mode is the fastest way in. Switch to Login or Register when you want account-based identity.</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="workspaceHeaderLayout">
-      <property name="spacing">
-       <number>12</number>
-      </property>
-      <item>
-       <layout class="QVBoxLayout" name="workspaceTitleLayout">
-        <property name="spacing">
-         <number>4</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="workspaceTitleLabel">
-          <property name="text">
-           <string>Workspace</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="workspaceSubtitleLabel">
-          <property name="text">
-           <string>Join a room, follow member changes, and chat without losing the main feed.</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="activitySummaryLabel">
-          <property name="text">
-           <string>No recent activity yet.</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="workspaceMetaLayout">
-          <property name="spacing">
-           <number>8</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="currentRoomCaptionLabel">
-            <property name="text">
-             <string>Current Room</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="currentRoomLabel">
-            <property name="text">
-             <string>Lobby</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="ownerStateLabel">
-            <property name="text">
-             <string>Owner controls unavailable</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <spacer name="workspaceHeaderSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QFrame" name="workspaceToolbarFrame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="workspaceToolbarLayout">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <property name="leftMargin">
-        <number>10</number>
-       </property>
-       <property name="topMargin">
-        <number>8</number>
-       </property>
-       <property name="rightMargin">
-        <number>10</number>
-       </property>
-       <property name="bottomMargin">
-        <number>8</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="guideToggleButton">
-         <property name="text">
-          <string>Guide</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="helpButton">
-         <property name="text">
-          <string>Help</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="usersButton">
-         <property name="text">
-          <string>Users</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="roomsButton">
-         <property name="text">
-          <string>Rooms</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="workspaceToolbarSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="guidePanelFrame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="guidePanelLayout">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <property name="leftMargin">
-        <number>12</number>
-       </property>
-       <property name="topMargin">
-        <number>12</number>
-       </property>
-       <property name="rightMargin">
-        <number>12</number>
-       </property>
-       <property name="bottomMargin">
-        <number>12</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="guidePanelTitleLabel">
-         <property name="text">
-          <string>Quick Guide</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="connectionGuideLabel">
-         <property name="text">
-          <string>Guests only need a display name. Login/Register also needs account and password before connecting.</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="roomGuideLabel">
-         <property name="text">
-          <string>Use Rooms to refresh, create, or join. Double-click a room to join and double-click a user to prepare a whisper.</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="commandsGuideLabel">
-         <property name="text">
-          <string>Commands: /help, /list, /rooms, /create &lt;room&gt;, /join &lt;room&gt;, /leave, /close, /announce &lt;msg&gt;, /kick &lt;nick&gt;, /bot [on|off|status], /name &lt;new&gt;, /w &lt;nick&gt; &lt;msg&gt;</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="chatFeedTitleLabel">
-      <property name="text">
-       <string>Chat Feed</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QSplitter" name="centerSplitter">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="childrenCollapsible">
-       <bool>false</bool>
-      </property>
-      <widget class="QTextEdit" name="logView">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QWidget" name="rightPanel">
-       <layout class="QVBoxLayout" name="rightPanelLayout">
-        <property name="spacing">
-         <number>10</number>
-        </property>
-        <item>
+        <widget class="QSplitter" name="centerSplitter">
+         <property name="orientation"><enum>Qt::Horizontal</enum></property>
+         <property name="childrenCollapsible"><bool>false</bool></property>
+         <widget class="QTextEdit" name="logView"><property name="readOnly"><bool>true</bool></property></widget>
          <widget class="QTabWidget" name="sidebarTabs">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
+          <property name="minimumWidth"><number>300</number></property>
+          <property name="maximumWidth"><number>380</number></property>
           <widget class="QWidget" name="roomsTab">
-           <attribute name="title">
-            <string>Rooms</string>
-           </attribute>
+           <attribute name="title"><string>Rooms</string></attribute>
            <layout class="QVBoxLayout" name="roomsTabLayout">
-            <property name="spacing">
-             <number>8</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="roomsTitleLabel">
-              <property name="text">
-               <string>Rooms</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="roomStatsLabel">
-              <property name="text">
-               <string>No rooms loaded yet.</string>
-              </property>
-              <property name="wordWrap">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="roomList"/>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="roomEdit">
-              <property name="placeholderText">
-               <string>Room name</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="roomButtonLayout">
-              <item>
-               <widget class="QPushButton" name="roomActionButton">
-                <property name="text">
-                 <string>Create / Join</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="refreshRoomsButton">
-                <property name="text">
-                 <string>Refresh</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QPushButton" name="leaveRoomButton">
-              <property name="text">
-               <string>Leave Room</string>
-              </property>
-             </widget>
-            </item>
+            <item><widget class="QListWidget" name="roomList"/></item>
+            <item><widget class="QLineEdit" name="roomEdit"><property name="placeholderText"><string>Room name</string></property></widget></item>
+            <item><layout class="QHBoxLayout" name="roomButtons"><item><widget class="QPushButton" name="roomActionButton"><property name="text"><string>Create / Join</string></property></widget></item><item><widget class="QPushButton" name="refreshRoomsButton"><property name="text"><string>Refresh</string></property></widget></item></layout></item>
+            <item><widget class="QPushButton" name="leaveRoomButton"><property name="text"><string>Leave to Lobby</string></property></widget></item>
            </layout>
           </widget>
           <widget class="QWidget" name="peopleTab">
-           <attribute name="title">
-            <string>People</string>
-           </attribute>
+           <attribute name="title"><string>People</string></attribute>
            <layout class="QVBoxLayout" name="peopleTabLayout">
-            <property name="spacing">
-             <number>8</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="usersTitleLabel">
-              <property name="text">
-               <string>Connected Users</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="userStatsLabel">
-              <property name="text">
-               <string>No users loaded yet.</string>
-              </property>
-              <property name="wordWrap">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="userList"/>
-            </item>
+            <item><widget class="QLabel" name="peopleGuideLabel"><property name="text"><string>Double-click a user to prepare a whisper.</string></property><property name="wordWrap"><bool>true</bool></property></widget></item>
+            <item><widget class="QListWidget" name="userList"/></item>
            </layout>
           </widget>
           <widget class="QWidget" name="adminTab">
-           <attribute name="title">
-            <string>Room Tools</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="adminTabLayout">
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="roomSummaryLabel">
-              <property name="text">
-               <string>Room info and quick state will appear here.</string>
-              </property>
-              <property name="wordWrap">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="ownerKickLayout">
-              <property name="spacing">
-               <number>8</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="selectedUserCaptionLabel">
-                <property name="text">
-                 <string>Selected User</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="selectedUserLabel">
-                <property name="text">
-                 <string>(none)</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="ownerKickSpacer">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="kickUserButton">
-                <property name="text">
-                 <string>Kick User</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="ownerActionLayout">
-              <property name="spacing">
-               <number>8</number>
-              </property>
-              <item>
-               <widget class="QPushButton" name="announceButton">
-                <property name="text">
-                 <string>Announce</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="botStatusButton">
-                <property name="text">
-                 <string>Bot Status</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="closeRoomButton">
-                <property name="text">
-                 <string>Close Room</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <spacer name="adminTabSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
+           <attribute name="title"><string>Room Tools</string></attribute>
+           <layout class="QVBoxLayout" name="adminLayout">
+            <item><widget class="QLabel" name="selectedUserTitleLabel"><property name="text"><string>Selected user</string></property></widget></item>
+            <item><widget class="QLabel" name="selectedUserLabel"><property name="text"><string>None</string></property></widget></item>
+            <item><widget class="QPushButton" name="kickUserButton"><property name="text"><string>Kick User</string></property></widget></item>
+            <item><widget class="QPushButton" name="closeRoomButton"><property name="text"><string>Close Room</string></property></widget></item>
+            <item><spacer name="adminSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property></spacer></item>
            </layout>
           </widget>
          </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="composerFrame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="bottomLayout">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="inputHintLabel">
-        <property name="text">
-         <string>Type commands directly: /help, /list, /rooms, /create, /join, /leave, /w</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="inputLayout">
-        <property name="spacing">
-         <number>12</number>
-        </property>
-        <item>
-         <widget class="QLineEdit" name="messageEdit">
-          <property name="placeholderText">
-           <string>Connect first to start chatting</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="clearLogButton">
-          <property name="text">
-           <string>Clear Feed</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="sendButton">
-          <property name="text">
-           <string>Send</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="composerLayout">
+         <item><widget class="QLineEdit" name="messageEdit"><property name="placeholderText"><string>Message or /w &lt;nickname&gt; &lt;message&gt;</string></property></widget></item>
+         <item><widget class="QPushButton" name="sendButton"><property name="text"><string>Send</string></property></widget></item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -702,4 +116,3 @@
  <resources/>
  <connections/>
 </ui>
-

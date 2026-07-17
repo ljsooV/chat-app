@@ -1,6 +1,6 @@
 #pragma once
+
 #include "def.h"
-#include "storage_repository.h"
 
 class server_session
 {
@@ -27,26 +27,20 @@ public:
     void close();
 
 private:
-    bool process_command(SOCKET sock, const string& payload, string& nickname, string& account_name, string& current_room);
+    bool process_command(SOCKET sock, const string& payload, string& nickname, string& current_room);
     void process_chat_message(SOCKET sock, const string& payload, const string& nickname, const string& current_room);
-    bool authenticate_client(SOCKET sock, MESSAGE_TYPE first_type, const string& payload, string& nickname, string& account_name, string& current_room);
-    void send_room_history(SOCKET sock, const string& room_name);
-    void persist_room_state();
-    void cleanup_room_state_locked(const string& room_name);
-    string build_room_bot_reply(const string& room_name, const string& nickname, const string& message);
-    bool is_room_bot_enabled(const string& room_name);
+    bool accept_nickname(SOCKET sock, MESSAGE_TYPE first_type, const string& payload, string& nickname, string& current_room);
     void notify_room_catalog();
     void notify_room_state(const string& room_name);
     void notify_room_users(const string& room_name);
+    void cleanup_room_state_locked(const string& room_name);
 
     SOCKET m_serv_sock;
     map<SOCKET, USER_INFO> m_client_info;
     map<string, string> m_room_owners;
-    map<string, bool> m_room_bot_enabled;
     mutex m_client_lock;
     vector<thread> m_client_threads;
     mutex m_thread_lock;
     atomic<bool> m_running;
     atomic<bool> m_wsa_ready;
-    storage_repository m_storage;
 };
