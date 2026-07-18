@@ -107,7 +107,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\dev\comm\include;..\..\dev\server\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\dev\core\src\include;..\..\dev\server\src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\dev\comm\include;..\..\dev\server\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\dev\core\src\include;..\..\dev\server\src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,13 +135,19 @@
     <IntDir>x64\Release\</IntDir>
   </PropertyGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\dev\server\include\server_session.h" />
-    <ClInclude Include="..\..\dev\server\include\storage_repository.h" />
+    <ClInclude Include="..\..\dev\server\src\include\server_session.h" />
+    <ClInclude Include="..\..\dev\server\src\include\server_types.h" />
+    <ClInclude Include="..\..\dev\server\src\include\socket_io.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dev\server\src\main.cpp" />
     <ClCompile Include="..\..\dev\server\src\server_session.cpp" />
-    <ClCompile Include="..\..\dev\server\src\storage_repository.cpp" />
+    <ClCompile Include="..\..\dev\server\src\socket_io.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\chat-core\chat-core.vcxproj">
+      <Project>{DE459EB4-A7FE-4C3D-8C94-F907FEE9A20F}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

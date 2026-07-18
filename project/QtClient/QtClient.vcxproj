@@ -62,7 +62,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(IntDir);$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;$(QtInstallDir)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);..\..\dev\core\src\include;..\..\dev\client\src\include;$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;$(QtInstallDir)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -87,7 +87,7 @@ copy /Y "$(QtInstallDir)\plugins\platforms\qwindowsd.dll" "$(OutDir)platforms\"<
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(IntDir);$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;$(QtInstallDir)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);..\..\dev\core\src\include;..\..\dev\client\src\include;$(QtInstallDir)\include;$(QtInstallDir)\include\QtCore;$(QtInstallDir)\include\QtGui;$(QtInstallDir)\include\QtWidgets;$(QtInstallDir)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,22 +105,26 @@ copy /Y "$(QtInstallDir)\plugins\platforms\qwindows.dll" "$(OutDir)platforms\"</
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="chatwindow.h" />
-    <ClInclude Include="protocol.h" />
+    <ClInclude Include="..\..\dev\client\src\include\chat_window.h" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="chatwindow.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_chatwindow.h</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QtInstallDir)\bin\uic.exe" "%(FullPath)" -o "$(IntDir)ui_chatwindow.h"</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)ui_chatwindow.h</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_chatwindow.h</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QtInstallDir)\bin\uic.exe" "%(FullPath)" -o "$(IntDir)ui_chatwindow.h"</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)ui_chatwindow.h</Outputs>
+    <CustomBuild Include="..\..\dev\client\form\chat_window.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_chat_window.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QtInstallDir)\bin\uic.exe" "%(FullPath)" -o "$(IntDir)ui_chat_window.h"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)ui_chat_window.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_chat_window.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QtInstallDir)\bin\uic.exe" "%(FullPath)" -o "$(IntDir)ui_chat_window.h"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)ui_chat_window.h</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chatwindow.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\dev\client\src\chat_window.cpp" />
+    <ClCompile Include="..\..\dev\client\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\chat-core\chat-core.vcxproj">
+      <Project>{DE459EB4-A7FE-4C3D-8C94-F907FEE9A20F}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

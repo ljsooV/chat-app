@@ -1,35 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="include">
-      <UniqueIdentifier>{6A2F9332-EDB1-4E82-8CC4-F0F6B72DBE6F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{3E516F39-CA00-46C5-A69A-6DA80E61B9D0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="form">
-      <UniqueIdentifier>{EED880EC-3304-412A-A5F6-95FF0AC31A4B}</UniqueIdentifier>
-    </Filter>
+    <Filter Include="src"><UniqueIdentifier>{3E516F39-CA00-46C5-A69A-6DA80E61B9D0}</UniqueIdentifier></Filter>
+    <Filter Include="src\include"><UniqueIdentifier>{6A2F9332-EDB1-4E82-8CC4-F0F6B72DBE6F}</UniqueIdentifier></Filter>
+    <Filter Include="form"><UniqueIdentifier>{EED880EC-3304-412A-A5F6-95FF0AC31A4B}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chatwindow.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="protocol.h">
-      <Filter>include</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\dev\client\src\include\chat_window.h"><Filter>src\include</Filter></ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chatwindow.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClCompile Include="..\..\dev\client\src\chat_window.cpp"><Filter>src</Filter></ClCompile>
+    <ClCompile Include="..\..\dev\client\src\main.cpp"><Filter>src</Filter></ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="chatwindow.ui">
-      <Filter>form</Filter>
-    </CustomBuild>
+    <CustomBuild Include="..\..\dev\client\form\chat_window.ui"><Filter>form</Filter></CustomBuild>
   </ItemGroup>
 </Project>

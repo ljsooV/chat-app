@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src"><UniqueIdentifier>{ED21E711-2C49-47DC-94C4-1E12044EA469}</UniqueIdentifier></Filter>
+    <Filter Include="src\include"><UniqueIdentifier>{8E536A79-010D-43C2-9E96-20FB07CA645F}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\dev\core\src\include\chat_types.h"><Filter>src\include</Filter></ClInclude>
+    <ClInclude Include="..\..\dev\core\src\include\packet_codec.h"><Filter>src\include</Filter></ClInclude>
+    <ClInclude Include="..\..\dev\core\src\include\validation.h"><Filter>src\include</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\dev\core\src\packet_codec.cpp"><Filter>src</Filter></ClCompile>
+    <ClCompile Include="..\..\dev\core\src\validation.cpp"><Filter>src</Filter></ClCompile>
+  </ItemGroup>
+</Project>
