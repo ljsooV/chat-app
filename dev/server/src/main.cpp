@@ -1,7 +1,11 @@
 #include "server_session.h"
 
+#include <Windows.h>
+
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
+
     server_session server;
 
     if (!server.init())

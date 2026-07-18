@@ -118,7 +118,7 @@ void chat_window::setup_ui()
 {
     m_ui->setupUi(this);
     resize(1280, 800);
-    setMinimumSize(1020, 680);
+    setMinimumSize(640, 480);
 
     centralWidget()->setStyleSheet(
         "QWidget#central_widget { background:#f3f5f6; color:#24343b; font-size:14px; }"
@@ -175,6 +175,7 @@ void chat_window::set_connected_ui_state(bool connected)
     m_ui->nickname_edit->setEnabled(!connected);
     m_ui->connect_button->setText(connected ? "Disconnect" : "Connect");
     update_status(connected ? "Connected" : "Disconnected");
+    statusBar()->showMessage(connected ? "Connected" : "Disconnected");
 
     if (!connected)
     {
@@ -232,7 +233,6 @@ void chat_window::socket_connected()
 void chat_window::socket_disconnected()
 {
     set_connected_ui_state(false);
-    statusBar()->showMessage("Disconnected");
 }
 
 void chat_window::socket_error_occurred(QAbstractSocket::SocketError)
@@ -260,6 +260,26 @@ void chat_window::send_message()
     if (text.compare("/clear", Qt::CaseInsensitive) == 0)
     {
         m_ui->log_view->clear();
+        m_ui->message_edit->clear();
+
+        return;
+    }
+
+    if (text.compare("/help", Qt::CaseInsensitive) == 0)
+    {
+        append_log(
+            "HELP",
+            "/list - users in the current room\n"
+            "/rooms - available rooms\n"
+            "/create <room> - create and join a room\n"
+            "/join <room> - join a room\n"
+            "/leave - return to Lobby\n"
+            "/name <nickname> - change nickname\n"
+            "/w <nickname> <message> - whisper\n"
+            "/kick <nickname> - remove a user from your room\n"
+            "/close - close your room\n"
+            "/clear - clear the local chat log",
+            QColor("#66767c"));
         m_ui->message_edit->clear();
 
         return;
