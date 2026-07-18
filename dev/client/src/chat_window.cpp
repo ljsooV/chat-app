@@ -257,6 +257,14 @@ void chat_window::send_message()
         return;
     }
 
+    if (text.compare("/clear", Qt::CaseInsensitive) == 0)
+    {
+        m_ui->log_view->clear();
+        m_ui->message_edit->clear();
+
+        return;
+    }
+
     send_packet(MESSAGE_TYPE::CHAT, text);
     m_ui->message_edit->clear();
 }
