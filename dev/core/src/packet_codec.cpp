@@ -54,7 +54,7 @@ namespace chat
 
         const uint32_t type_value = read_u32_be(data);
         const uint32_t payload_size = read_u32_be(data + 4);
-        if (!is_known_message_type(type_value) || payload_size > MAX_PACKET_PAYLOAD_SIZE)
+        if (false == is_known_message_type(type_value) || payload_size > MAX_PACKET_PAYLOAD_SIZE)
         {
             result.m_status = PARSE_STATUS::INVALID_PACKET;
 

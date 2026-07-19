@@ -503,7 +503,6 @@ bool chat_window::process_buffered_packet()
 {
     const chat::parse_result result = chat::try_parse_packet(reinterpret_cast<const uint8_t*>(m_buffer.constData()),
                                                             static_cast<size_t>(m_buffer.size()));
-
     if (result.m_status == chat::PARSE_STATUS::NEED_MORE_DATA)
     {
         return false;
