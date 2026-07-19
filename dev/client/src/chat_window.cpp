@@ -174,6 +174,7 @@ void chat_window::set_connected_ui_state(bool connected)
     m_ui->port_edit->setEnabled(!connected);
     m_ui->nickname_edit->setEnabled(!connected);
     m_ui->connect_button->setText(connected ? "Disconnect" : "Connect");
+
     update_status(connected ? "Connected" : "Disconnected");
     statusBar()->showMessage(connected ? "Connected" : "Disconnected");
 
@@ -202,6 +203,7 @@ void chat_window::connect_to_server()
     if (m_socket->state() == QAbstractSocket::ConnectedState)
     {
         m_socket->disconnectFromHost();
+
         return;
     }
 
@@ -280,6 +282,7 @@ void chat_window::send_message()
             "/close - close your room\n"
             "/clear - clear the local chat log",
             QColor("#66767c"));
+
         m_ui->message_edit->clear();
 
         return;

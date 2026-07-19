@@ -8,17 +8,17 @@ using namespace std;
 
 namespace chat
 {
-    inline constexpr uint16_t default_port          = 9000;
+    inline constexpr uint16_t DEFAULT_PORT          = 9000;
     inline constexpr string_view DEFAULT_ROOM       = "Lobby";
 
-    inline constexpr size_t packet_header_size      = 8;
-    inline constexpr size_t max_packet_payload_size = 64 * 1024;
-    inline constexpr size_t max_nickname_length     = 20;
-    inline constexpr size_t max_username_length     = 24;
-    inline constexpr size_t max_password_length     = 32;
-    inline constexpr size_t max_room_name_length    = 24;
-    inline constexpr size_t max_chat_length         = 512;
-    inline constexpr size_t max_connected_clients   = 10;
+    inline constexpr size_t PACKET_HEADER_SIZE      = 8;
+    inline constexpr size_t MAX_PACKET_PAYLOAD_SIZE = 64 * 1024;
+    inline constexpr size_t MAX_NICKNAME_LENGTH     = 20;
+    inline constexpr size_t MAX_USERNAME_LENGTH     = 24;
+    inline constexpr size_t MAX_PASSWORD_LENGTH     = 32;
+    inline constexpr size_t MAX_ROOM_NAME_LENGTH    = 24;
+    inline constexpr size_t MAX_CHAT_LENGTH         = 512;
+    inline constexpr size_t MAX_CONNECTED_CLIENTS   = 10;
 
     enum class MESSAGE_TYPE : uint32_t
     {

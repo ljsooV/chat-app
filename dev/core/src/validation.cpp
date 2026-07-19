@@ -28,7 +28,7 @@ namespace chat
     bool is_valid_nickname(string_view nickname)
     {
         if (nickname.empty()
-            || nickname.size() > max_nickname_length
+            || nickname.size() > MAX_NICKNAME_LENGTH
             || contains_control_characters(nickname))
         {
             return false;
@@ -39,7 +39,7 @@ namespace chat
 
     bool is_valid_username(string_view username)
     {
-        if (username.empty() || username.size() > max_username_length || contains_control_characters(username))
+        if (username.empty() || username.size() > MAX_USERNAME_LENGTH || contains_control_characters(username))
         {
             return false;
         }
@@ -61,7 +61,7 @@ namespace chat
     bool is_valid_password(string_view password)
     {
         if (password.empty() ||
-            password.size() > max_password_length || 
+            password.size() > MAX_PASSWORD_LENGTH || 
             contains_control_characters(password))
         {
             return false;
@@ -73,7 +73,7 @@ namespace chat
     bool is_valid_chat_message(string_view message)
     {
         if (message.empty() ||
-            message.size() > max_chat_length || 
+            message.size() > MAX_CHAT_LENGTH || 
             contains_control_characters(message))
         {
             return false;
@@ -85,7 +85,7 @@ namespace chat
     bool is_valid_room_name(string_view room_name)
     {
         if (room_name.empty() || 
-            room_name.size() > max_room_name_length || 
+            room_name.size() > MAX_ROOM_NAME_LENGTH || 
             contains_control_characters(room_name)  || 
             string_view::npos != room_name.find(' '))
         {

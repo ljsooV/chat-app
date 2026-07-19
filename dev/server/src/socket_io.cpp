@@ -73,7 +73,7 @@ bool recv_packet(SOCKET socket, chat::MESSAGE_TYPE& type, string& payload)
     const uint32_t type_value = ntohl(header.m_type);
     const uint32_t payload_size = ntohl(header.m_size);
 
-    if (!chat::is_valid_message_type(type_value) || payload_size > chat::max_packet_payload_size)
+    if (!chat::is_valid_message_type(type_value) || payload_size > chat::MAX_PACKET_PAYLOAD_SIZE)
     {
         return false;
     }

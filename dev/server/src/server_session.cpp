@@ -179,7 +179,7 @@ void server_session::accept_loop()
             continue;
         }
 
-        if (client_count() >= chat::max_connected_clients)
+        if (client_count() >= chat::MAX_CONNECTED_CLIENTS)
         {
             send_packet(clnt_sock, MESSAGE_TYPE::SYSTEM_ERROR, timestamp_message("server is full"));
             closesocket(clnt_sock);
